@@ -1,0 +1,105 @@
+FORMAT: 1A
+
+# VUTTR REST API
+
+This is the REST API for the VUTTR project. It allows to list tools, create a tool and delete a tool.
+
+## Tools [/tools{?tag}{&page}{&size}]
+
+### List All Tools [GET]
+
++ Parameters
+    + tag (string, optional) - List only tools with the tag passed as parameter
+    + page (number, optional) - Page starting with 1
+      + Default: `1`
+    + size (number, optional) - How many results per page
+      + Default: `10`
+
+- Response 200 (application/json)
+  [
+    {
+      "tags": [
+        "node",
+        "organizing",
+        "webapps",
+        "domain",
+        "developer",
+        "https",
+        "proxy"
+      ],
+      "_id": "5f3ed359e4dda60ea08642b1",
+      "title": "hotel",
+      "link": "https://github.com/typicode/hotel",
+      "description": "Local app manager. Start apps within your browser, developer tool with local .localhost domain and https out of the box.",
+      "createdAt": "2020-08-20T19:47:37.053Z",
+      "updatedAt": "2020-08-20T19:47:37.053Z",
+      "__v": 0
+    },
+    {
+      "tags": [
+        "node",
+        "organizing",
+        "webapps",
+        "domain",
+        "developer",
+        "https",
+        "proxy"
+      ],
+      "_id": "5f3ed610235d9b2174574195",
+      "title": "hotel2",
+      "link": "https://github.com/typicode/hotel",
+      "description": "Local app manager. Start apps within your browser, developer tool with local .localhost domain and https out of the box.",
+      "createdAt": "2020-08-20T19:59:12.544Z",
+      "updatedAt": "2020-08-20T19:59:12.544Z",
+      "__v": 0
+    }
+  ]
+
+
+### Create a Tool [POST]
+
++ Request (application/json)
+  {
+    "title": "hotel",
+    "link": "https://github.com/typicode/hotel",
+    "description": "Local app manager. Start apps within your browser, developer tool with local .localhost domain and https out of the box.",
+    "tags": [
+      "node",
+      "organizing",
+      "webapps",
+      "domain",
+      "developer",
+      "https",
+      "proxy"
+    ]
+  }
+
+- Response 201 (application/json)
+  {
+    "tags": [
+      "node",
+      "organizing",
+      "webapps",
+      "domain",
+      "developer",
+      "https",
+      "proxy"
+    ],
+    "_id": "5f3edd48ba0ebf1bd4a4c25c",
+    "title": "hotel",
+    "link": "https://github.com/typicode/hotel",
+    "description": "Local app manager. Start apps within your browser, developer tool with local .localhost domain and https out of the box.",
+    "createdAt": "2020-08-20T20:30:00.912Z",
+    "updatedAt": "2020-08-20T20:30:00.912Z",
+    "__v": 0
+  }
+
+
+## Tool [/tools/:id]
+
+### Delete a Tool [DELETE]
+
++ Parameters
+    + id (string) - ID of the Tool
+
++ Response 204
