@@ -11,13 +11,13 @@ const listTools = (req, resp) => {
     size = parseInt(req.query.size, 10);
   }
 
-  let search;
+  let searchOptions = {};
   if (req.query.tag) {
-    search = Tool.find({ tags: req.query.tag });
-  } else {
-    search = Tool.find();
+    searchOptions = { tags: req.query.tag };
   }
-  search
+
+  Tool
+    .find(searchOptions)
     .limit(size)
     .skip((page - 1) * size)
     .then((tools) => resp.json(tools))
